@@ -1,0 +1,58 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>Time Elapsed Since a Date</title>\
+    <style>\
+        body \{\
+            font-family: Arial, sans-serif;\
+            text-align: center;\
+            margin-top: 50px;\
+        \}\
+        img \{\
+            max-width: 100%; /* Responsive image */\
+            height: auto; /* Maintain aspect ratio */\
+        \}\
+    </style>\
+</head>\
+<body>\
+    <h1>Time Elapsed Since August 30, 2021</h1>\
+    \
+    <!-- Add your image here -->\
+    <img src="your-image-url.jpg" alt="Description of Image">\
+\
+    <div id="timeElapsed"></div>\
+\
+    <script>\
+        function calculateTimeElapsed() \{\
+            const startDate = new Date("2021-08-30T00:00:00");\
+            const now = new Date();\
+            const elapsed = now - startDate;\
+\
+            const seconds = Math.floor(elapsed / 1000);\
+            const minutes = Math.floor(seconds / 60);\
+            const hours = Math.floor(minutes / 60);\
+            const days = Math.floor(hours / 24);\
+            const months = Math.floor(days / 30.44); // Approximate average month length\
+            const years = Math.floor(months / 12);\
+\
+            document.getElementById("timeElapsed").innerHTML =\
+                `$\{years\} years, $\{months % 12\} months, $\{days % 30.44\} days, ` +\
+                `$\{hours % 24\} hours, $\{minutes % 60\} minutes, ` +\
+                `$\{seconds % 60\} seconds`;\
+        \}\
+\
+        setInterval(calculateTimeElapsed, 1000);\
+        calculateTimeElapsed(); // Initial call to display immediately\
+    </script>\
+</body>\
+</html>\
+}
